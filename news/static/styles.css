@@ -1,0 +1,100 @@
+/* Style for the body */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('news.png'); /* Set background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background */
+    height: 100vh; /* Set body height to full viewport height */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+/* Style for the overlay container */
+.overlay {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px; /* Add padding */
+    border-radius: 12px; /* Add border radius */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Add box shadow */
+    text-align: center; /* Center text */
+    width: 80%; /* Set width to 80% of the viewport */
+    max-width: 800px; /* Maximum width */
+    height: 80%; /* Set height to 80% of the viewport */
+    max-height: 600px; /* Maximum height */
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Style for the main heading */
+h1 {
+    color: #333; /* Set text color */
+}
+
+/* Style for the container */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Style for the input container */
+.input-container,
+.result-container {
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Style for the result container */
+.result-container {
+    overflow-y: auto;
+    height: 300px; /* Fixed height */
+    border: 2px solid #ccc; /* Add border */
+    padding: 10px; /* Add padding */
+    font-size: inherit; /* Inherit font size */
+}
+
+/* Style for the input container */
+.input-container {
+    border: 2px solid #ccc; /* Add border */
+    padding: 10px; /* Add padding */
+    height: 300px; /* Fixed height */
+}
+
+/* Style for the input container textarea */
+.input-container textarea {
+    width: calc(100% - 24px); /* Adjust width to accommodate border and padding */
+    height: 300px;
+    resize: vertical;
+    font-size: inherit; /* Inherit font size */
+}
+
+
+/* Style for the result action buttons */
+.result-actions {
+    margin-top: 20px; /* Add margin at the top */
+}
+
+/* Style for the result action buttons */
+.result-actions button {
+    margin: 0 10px; /* Add margin */
+    padding: 10px 20px; /* Add padding */
+    background-color: #a57f4e; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 6px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Add transition effect */
+}
+
+/* Hover style for the result action buttons */
+.result-actions button:hover {
+    background-color: #af9a7e; /* Change background color on hover */
+}
+
+.result-heading {
+    font-size: 1.5em; /* Adjust the font size as needed */
+}

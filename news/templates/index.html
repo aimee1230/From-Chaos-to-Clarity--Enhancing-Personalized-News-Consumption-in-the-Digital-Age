@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article Classification and Summarization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Main content container -->
+    <div class="overlay">
+        <!-- Main heading -->
+        <h1>News Article Classification and Summarization</h1>
+        <!-- Container for input and result -->
+        <div class="container">
+            <!-- Text input section -->
+            <div class="input-container result-container">
+                <label for="text-input">Enter your news article:</label><br>
+                <textarea id="text-input" name="news_article"></textarea>
+            </div>
+            <!-- Result container -->
+            <div class="result-container" id="result-container">
+                <!-- Result placeholders -->
+                <div id="classification-result"></div>
+                <div id="summary-result"></div>
+            </div>
+        </div>
+        <!-- Result action buttons -->
+        <div class="result-actions">
+            <button onclick="classifyAndSummarize()">Classify and Summarize</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for classification and summarization -->
+    <script>
+        function classifyAndSummarize() {
+            console.log('classifyAndSummarize() called');
+            var textInput = document.getElementById('text-input').value;
+
+            if (textInput.trim() !== '') {
+                var formData = new FormData();
+                formData.append('news_article', textInput);
+
+                fetch('/classify_and_summarize', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display classification result
+                    document.getElementById('classification-result').innerHTML = "<h2 class='result-heading'>Classification Result:</h2><p>" + data.class + "</p>";
+                    // Display summarization result
+                    document.getElementById('summary-result').innerHTML = "<h2 class='result-heading'>Summarization Result:</h2><p>" + data.summary + "</p>";
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            } else {
+                alert('Please enter text.');
+            }
+        }
+
+        // Set initial height of result container
+        window.onload = function() {
+            var inputContainer = document.querySelector('.input-container');
+            var resultContainer = document.getElementById('result-container');
+            resultContainer.style.height = inputContainer.clientHeight + 'px';
+        };
+    </script>
+</body>
+</html>
